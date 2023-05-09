@@ -66,7 +66,7 @@ const CardInfo = (props) =>{
                                     <h5 className="card-text">Velocidad del viento: {weather.wind.speed} m/s</h5>
                                 </div>
                                 <hr />
-                                <div className="row mt-4">
+                                <div className="row">
                                     <div className="col">
                                         <p>{forecastDate3}h</p>
                                         <p className="description"><img src={iconUrlThree} alt="3h" />{forecast.list[1].weather[0].description}</p>
