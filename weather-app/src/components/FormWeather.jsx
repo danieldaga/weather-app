@@ -1,7 +1,8 @@
 import React, { useState } from "react"
 
 
-const FormWeather = () => {
+const FormWeather = (props) => {
+    const {newLocation} = props
 
     const [city,setCity] =  useState("")
 
@@ -9,6 +10,8 @@ const FormWeather = () => {
         e.preventDefault()
         console.log({city})
         if (city === "" || !city) return //vacio
+
+        newLocation(city)
     }
 
     return(
