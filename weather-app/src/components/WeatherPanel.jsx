@@ -27,10 +27,8 @@ const WeatherPanel = () => {
             if(!response.ok) throw {response}
             return response.json()
         }).then((weatherData)=>{
-            console.log(weatherData)
             setWeather(weatherData)
         }).catch(error=>{
-            console.log(error);
             setLoading(false)
             setShowInfo(false)
         })

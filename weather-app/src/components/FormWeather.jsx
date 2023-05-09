@@ -8,7 +8,6 @@ const FormWeather = (props) => {
 
     const onSubmit = (e) => {
         e.preventDefault()
-        console.log({city})
         if (city === "" || !city) return //vacio
 
         newLocation(city)
