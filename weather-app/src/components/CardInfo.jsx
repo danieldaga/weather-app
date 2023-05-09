@@ -13,6 +13,15 @@ const CardInfo = (props) =>{
     let url = ""
     let iconUrl = ""
 
+    let iconUrlThree = ""
+    let iconUrlSix = ""
+    let iconUrlNine = ""
+
+    let forecastDate3 = ""
+    let forecastDate6 = ""
+    let forecastDate9 = ""
+
+
     if (loadingData) {
         return <Spinner />
     }
@@ -20,6 +29,15 @@ const CardInfo = (props) =>{
     if (showData) {
         url="http://openweathermap.org/img/w/"
         iconUrl = url + weather.weather[0].icon + ".png"
+
+        iconUrlThree = url + forecast.list[1].weather[0].icon + ".png"
+        iconUrlSix = url + forecast.list[2].weather[0].icon + ".png"
+        iconUrlNine = url + forecast.list[3].weather[0].icon + ".png"
+
+        forecastDate3 = forecast.list[1].dt_txt.substring(8, 10) + "/" + forecast.list[1].dt_txt.substring(5, 7) + "/" + forecast.list[1].dt_txt.substring(0,4) + " " + forecast.list[1].dt_txt.substring(11, 13)
+        forecastDate6 = forecast.list[2].dt_txt.substring(8, 10) + "/" + forecast.list[2].dt_txt.substring(5, 7) + "/" + forecast.list[2].dt_txt.substring(0,4) + " " + forecast.list[2].dt_txt.substring(11, 13)
+        forecastDate9 = forecast.list[3].dt_txt.substring(8, 10) + "/" + forecast.list[3].dt_txt.substring(5, 7) + "/" + forecast.list[3].dt_txt.substring(0,4) + " " + forecast.list[3].dt_txt.substring(11, 13)
+
     }
 
     return(
@@ -48,7 +66,23 @@ const CardInfo = (props) =>{
                                     <h5 className="card-text">Velocidad del viento: {weather.wind.speed} m/s</h5>
                                 </div>
                                 <hr />
-                                div.
+                                <div className="row mt-4">
+                                    <div className="col">
+                                        <p>{forecastDate3}h</p>
+                                        <p className="description"><img src={iconUrlThree} alt="3h" />{forecast.list[1].weather[0].description}</p>
+                                        <p className="temp">{(forecast.list[1].main.temp- 273.15).toFixed(1)}ºC</p>
+                                    </div>
+                                    <div className="col">
+                                        <p>{forecastDate3}h</p>
+                                        <p className="description"><img src={iconUrlSix} alt="3h" />{forecast.list[2].weather[0].description}</p>
+                                        <p className="temp">{(forecast.list[2].main.temp- 273.15).toFixed(1)}ºC</p>
+                                    </div>
+                                    <div className="col">
+                                        <p>{forecastDate3}h</p>
+                                        <p className="description"><img src={iconUrlNine} alt="3h" />{forecast.list[3].weather[0].description}</p>
+                                        <p className="temp">{(forecast.list[3].main.temp- 273.15).toFixed(1)}ºC</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
